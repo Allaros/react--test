@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+Param Editor CRA
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Простой редактор параметров на React + TypeScript с возможностью управлять значениями параметров и получать актуальную модель.
 
-## Available Scripts
+🚀 Старт проекта
 
-In the project directory, you can run:
+Установите зависимости:
 
-### `npm start`
+npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# или
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+yarn
 
-### `npm test`
+Запуск приложения в режиме разработки:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+npm start
 
-### `npm run build`
+# или
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+yarn start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Приложение откроется по адресу http://localhost:3000
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🧩 Структура проекта
 
-### `npm run eject`
+src/index.tsx — точка входа, рендер <App />.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+src/App.tsx — содержит компоненты:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+App — функциональный компонент с <ParamEditor> и кнопкой для получения модели
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+ParamEditor — класс для редактирования параметров
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+StringParamInput — компонент для ввода строковых параметров
 
-## Learn More
+src/App.test.tsx — unit-тесты с Jest + React Testing Library
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+⚙️ Используемые технологии
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+React 18 + TypeScript
 
-### Code Splitting
+React Testing Library
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Jest (для unit-тестов)
 
-### Analyzing the Bundle Size
+Тестирование
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Запуск всех тестов:
 
-### Making a Progressive Web App
+npm test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# или
 
-### Advanced Configuration
+yarn test
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Тесты проверяют:
 
-### Deployment
+Отображение всех полей по массиву params
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Инициализацию значений из model.paramValues
 
-### `npm run build` fails to minify
+Корректность getModel() после изменения значений
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Вывод тестов:
+
+PASS src/App.test.tsx
+ParamEditor
+√ отрисовывает все поля по params (92 ms)
+√ инициализация state из model.paramValues корректная (11 ms)
+√ getModel() возвращает обновленные значения после изменения (27 ms)
+App
+√ рендерит ParamEditor и кнопку (22 ms)
+
+Test Suites: 1 passed, 1 total
+Tests: 4 passed, 4 total
+Snapshots: 0 total
+Time: 6.162 s
+Ran all test suites related to changed files.
